@@ -558,11 +558,7 @@ extension UIDevice {
         if isIPad {
             return version >= 12.0 ? 50 : 44
         }else {
-            if isLandScape() {
-                return isRegularScreen() ? 44 : 32
-            }else {
-                return 44
-            }
+            return 44
         }
     }
     
@@ -588,7 +584,7 @@ extension UIDevice {
         if isIPad {
             result += 50
         }else if isLandScape() {
-            result += isRegularScreen() ? 44 : 32
+            result += 44
         }else {
             result += 44
             if deviceModel == "iPhone17,1" || deviceModel == "iPhone17,2" { // 16 Pro / 16 Pro Max
