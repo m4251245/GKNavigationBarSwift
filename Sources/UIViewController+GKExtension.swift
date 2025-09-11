@@ -483,8 +483,12 @@ extension UIViewController {
             let openFixNavItemSpace = self.gk_openFixNavItemSpace
             self.gk_disableFixNavItemSpace = disableFixNavItemSpace
             self.gk_openFixNavItemSpace = openFixNavItemSpace
-            // 隐藏系统导航栏
-            if self.navigationController?.gk_openSystemNavHandle == false {
+            
+            // 新增判断：如果是正在 pop 过渡，则不处理导航栏显示/隐藏
+            if let coordinator = self.transitionCoordinator, let fromVC = coordinator.viewController(forKey: .from), let navigationController = self.navigationController, !navigationController.viewControllers.contains(fromVC) {
+                //判断是否是从其他页面 pop 回来, 是 pop 操作，直接调用原始方法，不做导航栏处理
+            } else if self.navigationController?.gk_openSystemNavHandle == false {
+                // 隐藏系统导航栏
                 hiddenSystemNavBar()
             }
             
