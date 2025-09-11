@@ -618,17 +618,19 @@ extension UIDevice {
     public static func statusBarFullHeight() -> CGFloat {
         if !UIApplication.shared.isStatusBarHidden {
             return statusBarFrame().height
-        }
-        if isIPad {
-            return isNotchedScreen ? 24 : 20
-        }
-        if !isNotchedScreen {
-            return 20
-        }
-        if isLandScape() {
+        } else {
             return 0
         }
-        return statusBarHeightForPortrait()
+//        if isIPad {
+//            return isNotchedScreen ? 24 : 20
+//        }
+//        if !isNotchedScreen {
+//            return 20
+//        }
+//        if isLandScape() {
+//            return 0
+//        }
+//        return statusBarHeightForPortrait()
     }
     
     /// 竖屏状态栏高度
