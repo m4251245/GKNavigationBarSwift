@@ -581,9 +581,7 @@ extension UIDevice {
         let deviceModel = deviceModel
         let pixelOne = 1.0 / UIScreen.main.scale
         var result = statusBarFullHeight()
-        if isIPad {
-            result += 50
-        }else if isLandScape() {
+        if isLandScape() {
             result += 44
         }else {
             result += 44
